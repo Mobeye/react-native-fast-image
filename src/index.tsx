@@ -84,6 +84,8 @@ export interface FastImageProps extends AccessibilityProps, ViewProps {
     source: Source | number
     resizeMode?: ResizeMode
     fallback?: boolean
+    thumbnailWidth?: number
+    thumbnailHeight?: number
 
     onLoadStart?(): void
 
@@ -139,6 +141,8 @@ function FastImageBase({
     onLoadEnd,
     style,
     fallback,
+    thumbnailWidth,
+    thumbnailHeight,
     children,
     // eslint-disable-next-line no-shadow
     resizeMode = 'cover',
@@ -183,6 +187,8 @@ function FastImageBase({
                 onFastImageError={onError}
                 onFastImageLoadEnd={onLoadEnd}
                 resizeMode={resizeMode}
+                thumbnailWidth={thumbnailWidth}
+                thumbnailHeight={thumbnailHeight}
             />
             {children}
         </View>

@@ -154,8 +154,19 @@
             }
             return [mutableRequest copy];
         }];
-        SDWebImageContext *context = @{SDWebImageContextDownloadRequestModifier : requestModifier};
         
+        // Set context
+        SDWebImageContext *context;
+        if (self.thumbnailWidth && self.thumbnailHeight) {
+            CGFloat scale = UIScreen.mainScreen.scale; // Will be 2.0 on 6/7/8 and 3.0 on 6+/7+/8+ or later
+            CGSize thumbnailSize = CGSizeMake(self.thumbnailWidth* scale, self.thumbnailHeight* scale); // Thumbnail will bounds to (width * height) points
+             context = @{SDWebImageContextDownloadRequestModifier : requestModifier, SDWebImageContextImageThumbnailPixelSize : @(thumbnailSize)};
+           NSLog(@"thumbnail Dimensions %ld, %ld, (f=%@, f=%@)", (long)  self.thumbnailWidth, (long) self.thumbnailHeight, @(thumbnailSize.width), @(thumbnailSize.height));
+        } else {
+           context = @{SDWebImageContextDownloadRequestModifier : requestModifier};
+           NSLog(@"no thumbnail Dimensions %@, %@",  self.thumbnailWidth, self.thumbnailHeight);
+        }
+
         // Set priority.
         SDWebImageOptions options = SDWebImageRetryFailed | SDWebImageHandleCookies;
         switch (_source.priority) {
