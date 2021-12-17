@@ -6,8 +6,14 @@ This is how to start the example app so you can test code with it.
 
 ```bash
 # In the repo root folder.
+# You may want to comment the react and react-native dependencies in package.json
+
 # Install dependencies.
 yarn
+
+# Build the package.
+yarn build
+tsc --declaration --jsx react-native
 
 # Link module.
 yarn link
@@ -17,6 +23,7 @@ cd ReactNativeFastImageExample
 
 # Install dependencies.
 yarn
+cd ios && pod install && cd -
 
 # Link module.
 yarn link react-native-fast-image
