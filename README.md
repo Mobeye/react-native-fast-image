@@ -203,6 +203,18 @@ In this case the image will still be styled and laid out the same way as `FastIm
 
 If supplied, changes the color of all the non-transparent pixels to the given color.
 
+---
+
+### `thumbnailWidth?: number` (iOS only)
+
+If supplied along with `thumbnailHeight`, loads a scaled down version of the image into memory (uses [SDWebImage thumbnail decoding](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#thumbnail-decoding-550)).
+
+---
+
+### `thumbnailHeight?: number` (iOS only)
+
+If supplied along with `thumbnailWidth`, loads a scaled down version of the image into memory (uses [SDWebImage thumbnail decoding](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#thumbnail-decoding-550)).
+
 ## Static Methods
 
 ### `FastImage.preload: (source[]) => void`

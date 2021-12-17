@@ -18,6 +18,8 @@
 @property (nonatomic, assign) RCTResizeMode resizeMode;
 @property (nonatomic, strong) FFFastImageSource *source;
 @property (nonatomic, strong) UIColor *imageColor;
+@property (nonatomic, assign) NSInteger thumbnailWidth;
+@property (nonatomic, assign) NSInteger thumbnailHeight;
 
 @end
 
